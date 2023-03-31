@@ -251,6 +251,9 @@ func (s *Service) notifyNewPayload(ctx context.Context, postStateVersion int,
 
 // notifyBuildBlock signals the builder to build the next block.
 func (s *Service) notifyBuildBlock(ctx context.Context, st state.BeaconState, slot primitives.Slot, headBlock interfaces.ReadOnlyBeaconBlock) (bool, error) {
+
+	log.Info("notifyBuildBlock")
+
 	ctx, span := trace.StartSpan(ctx, "blockChain.notifyBuildBlock")
 	defer span.End()
 
